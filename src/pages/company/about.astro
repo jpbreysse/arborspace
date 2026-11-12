@@ -1,5 +1,10 @@
 ---
 import Page from '../../layouts/Page.astro';
+
+const team = [
+  { name: 'Jeanphi', role: 'Designed the solution' },
+  { name: 'Philippe', role: 'CEO' },
+];
 ---
 <Page
   title="About"
@@ -18,6 +23,24 @@ import Page from '../../layouts/Page.astro';
           <li><strong>People decide</strong>: the system proposes findings, experts approve or reject them.</li>
           <li><strong>Your data stays with you</strong>: on your premises or in your own cloud.</li>
         </ul>
+      </div>
+    </div>
+  </section>
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The team</p>
+        <h2>Two IT veterans.</h2>
+        <p class="lead">ArborSpace is built by a team of two.</p>
+      </div>
+      <div class="cards team">
+        {team.map((m) => (
+          <div class="card">
+            <span class="avatar" aria-hidden="true">{m.name[0]}</span>
+            <h3>{m.name}</h3>
+            <p class="role">{m.role}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

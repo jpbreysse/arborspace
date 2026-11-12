@@ -383,3 +383,11 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .plant-answer { margin: 0; line-height: 1.6; }
 .plant-answer strong { color: var(--amber); background: var(--amber-soft); padding: 0 .25rem; border-radius: 4px; font-weight: 600; }
 .plant-note { font-size: .8rem; color: var(--ink-soft); margin: 1rem 0 0; }
+
+/* Team cards (About) */
+.cards.team { max-width: 44rem; }
+.team .avatar {
+  display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; margin-bottom: 1rem;
+  background: var(--accent-soft); color: var(--accent); font-family: var(--display); font-weight: 700; font-size: 1.3rem;
+}
+.team .role { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
