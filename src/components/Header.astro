@@ -1,0 +1,42 @@
+---
+import Logo from './Logo.astro';
+import { nav, pilotMailto } from '../data/site';
+
+const current = Astro.url.pathname.replace(/\/$/, '');
+---
+<header class="site-header">
+  <div class="wrap header-row">
+    <Logo />
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul class="nav-groups">
+        {nav.map((group, i) => (
+          <li class="nav-group">
+            <button class="nav-trigger" type="button" aria-expanded="false" aria-controls={`nav-panel-${i}`}>
+              {group.label}
+              <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" /></svg>
+            </button>
+            <ul class="nav-panel" id={`nav-panel-${i}`}>
+              {group.items.map((item) => (
+                <li>
+                  <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>
+                    <strong>{item.label}</strong>
+                    <span>{item.description}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="/resources/brief">Read the brief</a>
+        <a class="btn btn-primary" href={pilotMailto}>Discuss a pilot</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<script is:inline src="/nav.js" defer></script>

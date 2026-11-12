@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+import ReviewWindow from '../components/ReviewWindow.astro';
+import PlantExample from '../components/PlantExample.astro';
+import PilotCta from '../components/PilotCta.astro';
+import { pilotMailto } from '../data/site';
+
+const steps = [
+  { title: 'Define', text: 'The firm declares its vocabulary in the ontology: asset classes, engagements, stakeholders and how they relate.' },
+  { title: 'The system works', text: 'Rules run against the data, and a similarity engine matches each case with the firm’s previous ones.' },
+  { title: 'People decide', text: 'Every conclusion arrives as a finding in a review queue. The expert approves or rejects it, and that decision feeds the memory.' },
+];
+
+const differences = [
+  { title: 'A domain model, not a blank page', text: 'ArborSpace ships with a first model of the domain (energy assets, due diligence engagements) that the firm adapts rather than builds.', href: '/product/ontology', icon: 'M4 6h16M4 12h10M4 18h7' },
+  { title: 'Readable rules', text: 'Rules are declarative and inspectable: every conclusion traces back to a named rule and an explicit path of relationships.', href: '/product/rules', icon: 'M8 4H5v16h3M16 4h3v16h-3M9 12h6' },
+  { title: 'On your premises', text: 'Deployed in the client’s environment, on site or in its own cloud, with code the client can audit.', href: '/product/deployment', icon: 'M4 11l8-6 8 6v9H4zM10 20v-5h4v5' },
+  { title: 'Sized for a firm', text: 'A pilot is measured in weeks, not in a transformation programme.', href: '/resources/pilot', icon: 'M12 7v5l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z' },
+];
+---
+<Base
+  title="ArborSpace: the knowledge layer for expert firms"
+  description="An operational ontology for companies that sell expertise: due diligence, technical consulting, commodity trading."
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>The <em>knowledge layer</em> for expert firms.</h1>
+        <p class="hero-sub">Between your applications and your data platform: a model of your domain, your experts’ rules, and every conclusion traced to its source.</p>
+        <ul class="checks">
+          <li>Readable rules</li>
+          <li>On your premises</li>
+          <li>Six-week pilot</li>
+        </ul>
+        <p class="hero-text">
+          Due diligence, technical consulting, commodity trading. ArborSpace captures what your
+          experts know, in a form the system can apply and your teams can review.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href={pilotMailto}>Discuss a pilot</a>
+          <a class="btn btn-outline btn-lg" href="/resources/brief">Read the brief</a>
+        </div>
+      </div>
+      <ReviewWindow />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap statement">
+      <p class="eyebrow">Why ArborSpace</p>
+      <h2>
+        Your applications record what happened. Your data platform stores everything.{' '}
+        <em>Neither knows what it means.</em>
+      </h2>
+      <p>
+        Each business application holds one slice of an asset (maintenance in one, contracts in
+        another, finance in a third), with logic fixed by its vendor. Data platforms such as
+        Databricks can hold all of it, but as tables: the meaning is rebuilt by hand, project after
+        project. Dashboards sit on top and show numbers, not reasons.
+      </p>
+      <p>
+        <strong>ArborSpace is the layer in between.</strong> It holds a model of your domain
+        (assets, engagements, contracts and how they connect), runs your experts’ rules on it, and
+        traces every conclusion back to its source before a person signs it off. It does not
+        replace your applications or your data platform. It gives them a shared meaning.
+      </p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="compare">
+        <div class="before">
+          <span class="tag">Generic platforms</span>
+          <h3>Built for very large organisations.</h3>
+          <p class="sub">They can build ontologies, but rarely ship a ready-to-use domain model.</p>
+          <ul>
+            <li><strong>You model the business from scratch</strong><span>The domain model is the client’s job to build.</span></li>
+            <li><strong>A Foundry-sized budget</strong><span>Out of reach for an expert firm.</span></li>
+            <li><strong>A dedicated modelling team</strong><span>Which a firm of experts does not have.</span></li>
+          </ul>
+        </div>
+        <div class="after">
+          <span class="tag">ArborSpace</span>
+          <h3>Sized for a firm that sells expertise.</h3>
+          <p class="sub">Not a chatbot over your documents, nor a better search.</p>
+          <ul>
+            <li><strong>A domain model, delivered</strong><span>Energy assets and due diligence engagements, ready to adapt.</span></li>
+            <li><strong>Rules your experts can read</strong><span>Every conclusion traces back to a named rule.</span></li>
+            <li><strong>A pilot in weeks</strong><span>On your premises, with code you can audit.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>The rule is the unit of value.</h2>
+        <p class="lead">
+          Expert knowledge written down explicitly, which the system applies and anyone can review.
+        </p>
+      </div>
+      <ol class="steps">
+        {steps.map((s) => <li><h3>{s.title}</h3><p>{s.text}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <PlantExample />
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What sets it apart</p>
+        <h2>Built for the way expert firms work.</h2>
+      </div>
+      <div class="cards">
+        {differences.map((d) => (
+          <a class="card" href={d.href}>
+            <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d={d.icon} /></svg></span>
+            <h3>{d.title}</h3>
+            <p>{d.text}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PilotCta />
+</Base>

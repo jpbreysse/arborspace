@@ -1,0 +1,28 @@
+---
+import Page from '../../layouts/Page.astro';
+import { contactEmail, pilotMailto } from '../../data/site';
+---
+<Page
+  title="Contact"
+  description="Talk to ArborSpace about a pilot."
+  eyebrow="Company · Contact"
+  heading="Talk to us about a pilot."
+  lead="Tell us about your firm and the kind of engagements you run. We will come back to you to scope a six-week pilot."
+>
+  <section>
+    <div class="wrap">
+      <div class="cards">
+        <a class="card" href={pilotMailto}>
+          <h3>Email</h3>
+          <p>{contactEmail}</p>
+          <span class="more">Write to us →</span>
+        </a>
+        <a class="card" href="/resources/brief">
+          <h3>Read the brief first</h3>
+          <p>ArborSpace on one page, to share with your team.</p>
+          <span class="more">Read the brief →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Page>

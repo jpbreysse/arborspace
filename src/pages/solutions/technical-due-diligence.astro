@@ -1,0 +1,34 @@
+---
+import Page from '../../layouts/Page.astro';
+import WorkedExample from '../../components/WorkedExample.astro';
+---
+<Page
+  title="Technical due diligence"
+  description="ArborSpace for technical due diligence: assets, findings, engagements and lenders, connected and reviewable."
+  eyebrow="Solutions · Technical due diligence"
+  heading="Assets, findings and lenders, connected."
+  lead="ArborSpace ships with a first domain model for energy assets and due diligence engagements, so the firm starts from its own vocabulary, not from a blank page."
+>
+  <section>
+    <div class="wrap split">
+      <div class="prose">
+        <h2>What the firm captures</h2>
+        <ul>
+          <li><strong>Thresholds and red flags</strong> your engineers apply, written as rules.</li>
+          <li><strong>The links</strong> between each finding, the asset, the site, the engagement and the lender.</li>
+          <li><strong>Every review decision</strong>, kept as part of the firm’s memory.</li>
+        </ul>
+      </div>
+      <div class="prose">
+        <h2>What changes on the next engagement</h2>
+        <p>
+          A similarity engine matches each new case with the firm’s previous ones, and every
+          conclusion traces back to a named rule that a lender’s reviewer can read.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="alt">
+    <div class="wrap"><WorkedExample /></div>
+  </section>
+</Page>

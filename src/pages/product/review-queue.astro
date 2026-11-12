@@ -1,0 +1,29 @@
+---
+import Page from '../../layouts/Page.astro';
+import ReviewWindow from '../../components/ReviewWindow.astro';
+---
+<Page
+  title="Review queue"
+  description="Every conclusion ArborSpace reaches arrives as a finding in a review queue, where an expert approves or rejects it."
+  eyebrow="Product · Review queue"
+  heading="People decide."
+  lead="Every conclusion arrives as a finding in a review queue. The expert approves or rejects it, and that decision feeds the memory."
+>
+  <section>
+    <div class="wrap split">
+      <div class="prose">
+        <h2>A finding, in context</h2>
+        <p>
+          A finding never arrives alone. It comes linked to the asset, the site, the engagement
+          and the stakeholder concerned, along with the rule that produced it.
+        </p>
+        <h2>Decisions that build the memory</h2>
+        <p>
+          Approving or rejecting a finding is not lost work: each decision is kept, and enriches
+          the firm’s memory for the next case.
+        </p>
+      </div>
+      <ReviewWindow />
+    </div>
+  </section>
+</Page>

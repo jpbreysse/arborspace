@@ -1,0 +1,32 @@
+---
+import { examplePath } from '../data/site';
+---
+<div class="example">
+  <div class="example-grid">
+    <div>
+      <p class="eyebrow">Example</p>
+      <h3>One reading, five connected objects.</h3>
+      <p>
+        A vibration above 8.2&nbsp;mm/s on a class 7F gas turbine generates a finding. That
+        finding is linked to the asset, the site, the engagement and the lender concerned, along
+        with the rule that produced it.
+      </p>
+    </div>
+    <figure class="rule-card" aria-label="The rule that produces the finding">
+<pre><b>rule</b>   VIB-002 (version 3)
+<b>if</b>     asset.class = GAS-TURBINE-7F
+<b>and</b>    bearing_vibration > 8.2 mm/s
+<b>then</b>   finding "Vibration above threshold"
+       reviewed by a senior engineer</pre>
+      <figcaption>Illustrative example.</figcaption>
+    </figure>
+  </div>
+  <ol class="path" aria-label="Relationship path of the finding">
+    {examplePath.map((step) => (
+      <li>
+        <span class="node"><small>{step.kind}</small>{step.label}</span>
+        {step.edge && <span class="edge">{step.edge}</span>}
+      </li>
+    ))}
+  </ol>
+</div>

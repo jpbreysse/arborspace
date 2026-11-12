@@ -1,0 +1,30 @@
+---
+import { examplePath } from '../data/site';
+---
+<figure class="app-window" aria-label="Illustrative view of the ArborSpace review queue">
+  <div class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span>arborspace · review queue</span></div>
+  <div class="app-body">
+    <div class="app-side" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b><b></b></div>
+    <div class="app-main">
+      <div class="app-head"><strong>Review queue</strong><span>Due diligence · Plant A</span></div>
+      <ul class="queue">
+        <li class="open">
+          <div class="row">
+            <code>VIB-002</code>
+            <span class="title">Vibration above 8.2&nbsp;mm/s</span>
+            <span class="pill review">to review</span>
+          </div>
+          <ul class="links">
+            {examplePath.slice(1).map((step) => (
+              <li><small>{step.kind}</small>{step.label}</li>
+            ))}
+          </ul>
+          <div class="decide" aria-hidden="true"><span class="yes">Approve</span><span>Reject</span></div>
+        </li>
+        <li><code>TMP-014</code><span class="title">Exhaust temperature spread</span><span class="pill review">to review</span></li>
+        <li><code>MNT-007</code><span class="title">Overhaul interval exceeded</span><span class="pill ok">approved</span></li>
+      </ul>
+    </div>
+  </div>
+  <figcaption class="app-note">Illustrative example</figcaption>
+</figure>

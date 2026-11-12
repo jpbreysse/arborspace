@@ -1,0 +1,25 @@
+---
+import Logo from './Logo.astro';
+import { nav, contactEmail } from '../data/site';
+---
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <Logo />
+      <p>The knowledge layer for expert firms. An operational ontology for companies that sell expertise.</p>
+      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+    </div>
+    {nav.map((group) => (
+      <div class="footer-col">
+        <h2 class="eyebrow">{group.label}</h2>
+        <ul>
+          {group.items.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© {new Date().getFullYear()} ArborSpace</span>
+    <span>No cookies, no tracking on this site.</span>
+  </div>
+</footer>

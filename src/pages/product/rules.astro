@@ -1,0 +1,38 @@
+---
+import Page from '../../layouts/Page.astro';
+import WorkedExample from '../../components/WorkedExample.astro';
+---
+<Page
+  title="Rules"
+  description="In ArborSpace the rule is the unit of value: expert knowledge written down explicitly, applied by the system, readable by anyone."
+  eyebrow="Product · Rules"
+  heading="The rule is the unit of value."
+  lead="A piece of expert knowledge written down explicitly, which the system applies and anyone can review."
+>
+  <section>
+    <div class="wrap split">
+      <div class="prose">
+        <h2>Declarative and inspectable</h2>
+        <p>
+          Rules are declarative: they state a condition and a conclusion, nothing hidden. Every
+          conclusion traces back to a named rule and an explicit path of relationships.
+        </p>
+        <p>
+          Rules run against the data, and a similarity engine matches each case with the firm’s
+          previous ones.
+        </p>
+      </div>
+      <div class="prose">
+        <h2>Written with your experts</h2>
+        <p>
+          In a pilot, the first fifteen rules are written in two weeks, starting from three
+          questions put to your experts.
+        </p>
+        <p><a href="/resources/pilot">How the pilot works →</a></p>
+      </div>
+    </div>
+  </section>
+  <section class="alt">
+    <div class="wrap"><WorkedExample /></div>
+  </section>
+</Page>

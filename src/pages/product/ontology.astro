@@ -1,0 +1,40 @@
+---
+import Page from '../../layouts/Page.astro';
+import WorkedExample from '../../components/WorkedExample.astro';
+---
+<Page
+  title="Ontology"
+  description="ArborSpace turns raw tables into linked business objects, starting from a domain model you adapt rather than build."
+  eyebrow="Product · Ontology"
+  heading="Your vocabulary, as objects and links."
+  lead="The ontology turns raw tables into business objects (an asset, an engagement, a supplier, a site) linked together, which teams and agents act on directly."
+>
+  <section>
+    <div class="wrap split">
+      <div class="prose">
+        <h2>Not a blank page</h2>
+        <p>
+          General-purpose platforms can build ontologies, but rarely ship a ready-to-use domain
+          model: it is up to the client to build it. An expert firm has neither the budget nor the
+          team to model its business from scratch.
+        </p>
+        <p>
+          ArborSpace ships with a first model of the domain (energy assets, due diligence
+          engagements) that the firm adapts rather than builds.
+        </p>
+      </div>
+      <div class="prose">
+        <h2>What the firm declares</h2>
+        <ul>
+          <li><strong>Asset classes</strong>, such as a class 7F gas turbine.</li>
+          <li><strong>Engagements</strong>, such as a technical due diligence.</li>
+          <li><strong>Stakeholders</strong>, such as the lender financing an asset.</li>
+          <li><strong>Relationships</strong> between them: installed at, assessed in, delivered to.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="alt">
+    <div class="wrap"><WorkedExample /></div>
+  </section>
+</Page>

@@ -1,0 +1,77 @@
+---
+import Page from '../../layouts/Page.astro';
+---
+<Page
+  title="Brief"
+  description="The ArborSpace brief: the problem, the product, how it works and the proposed pilot."
+  eyebrow="Resources · Brief"
+  heading="ArborSpace brief"
+  lead="ArborSpace on one page: the problem, the product, how it works and the pilot we propose."
+>
+  <section>
+    <div class="wrap">
+      <article class="prose">
+        <p class="doc-meta"><time datetime="2026-10-30">30 Oct 2026</time> · @jeanphi</p>
+
+        <h2>The problem</h2>
+        <p>
+          The value of a data platform is not in the analysis, it is in the ontology. That is the
+          lesson of Palantir: its strength is not computation, it is turning raw tables into
+          business objects (an asset, an engagement, a supplier, a site) linked together, which
+          teams and agents act on directly.
+        </p>
+        <p>
+          Today this layer is reserved for very large organisations. General-purpose platforms
+          can build ontologies, but rarely ship a ready-to-use domain model: it is up to the
+          client to build it. An expert firm has neither the budget of a Foundry nor the team to
+          model its business from scratch.
+        </p>
+
+        <h2>What ArborSpace is</h2>
+        <p>
+          ArborSpace is the memory of the firm: an operational ontology for companies that sell
+          expertise (due diligence, technical consulting, commodity trading).
+        </p>
+        <p>
+          It is neither a chatbot over your documents nor a better search. ArborSpace captures
+          what your experts know, in a form the system can apply and your teams can review.
+        </p>
+
+        <h2>How it works</h2>
+        <p>
+          The unit of value is the rule: a piece of expert knowledge written down explicitly,
+          which the system applies and anyone can review.
+        </p>
+        <ol>
+          <li><strong>Define.</strong> The firm declares its vocabulary in the ontology: asset classes, engagements, stakeholders and their relationships.</li>
+          <li><strong>The system works.</strong> Rules run against the data, and a similarity engine matches each case with the firm’s previous ones.</li>
+          <li><strong>People decide.</strong> Every conclusion arrives as a finding in a review queue. The expert approves or rejects it, and that decision feeds the memory.</li>
+        </ol>
+        <p class="callout">
+          <strong>Example:</strong> a vibration above 8.2&nbsp;mm/s on a class 7F gas turbine
+          generates a finding. That finding is linked to the asset, the site, the engagement and
+          the lender concerned, along with the rule that produced it.
+        </p>
+
+        <h2>What sets it apart</h2>
+        <ul>
+          <li><strong>A domain model, not a blank page.</strong> ArborSpace ships with a first model of the domain (energy assets, due diligence engagements) that the firm adapts rather than builds.</li>
+          <li><strong>Readable rules.</strong> Rules are declarative and inspectable: every conclusion traces back to a named rule and an explicit path of relationships.</li>
+          <li><strong>On your premises.</strong> Deployed in the client’s environment, on site or in its own cloud, with code the client can audit.</li>
+          <li><strong>Sized for a firm.</strong> A pilot is measured in weeks, not in a transformation programme.</li>
+        </ul>
+
+        <h2>Next steps</h2>
+        <p>
+          We propose a six-week pilot on a narrow scope of the firm. The first two weeks are used
+          to write the first fifteen rules, starting from three questions put to your experts.
+          The following four apply them to your own engagements.
+        </p>
+        <p>
+          The question to answer at the end of the pilot is simple: is the captured memory worth
+          extending to the rest of the firm?
+        </p>
+      </article>
+    </div>
+  </section>
+</Page>

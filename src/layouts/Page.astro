@@ -1,0 +1,21 @@
+---
+// Inner pages: a page header (eyebrow, title, lead), the page body, then the pilot call to action
+import Base from './Base.astro';
+import PilotCta from '../components/PilotCta.astro';
+
+interface Props { title: string; description: string; eyebrow: string; heading: string; lead: string; }
+const { title, description, eyebrow, heading, lead } = Astro.props;
+---
+<Base title={`${title} | ArborSpace`} description={description}>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{heading}</h1>
+      <p class="page-lead">{lead}</p>
+    </div>
+  </section>
+  <div class="page-body">
+    <slot />
+  </div>
+  <PilotCta />
+</Base>
