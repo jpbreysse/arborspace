@@ -3,8 +3,8 @@
 import Base from './Base.astro';
 import PilotCta from '../components/PilotCta.astro';
 
-interface Props { title: string; description: string; eyebrow: string; heading: string; lead: string; }
-const { title, description, eyebrow, heading, lead } = Astro.props;
+interface Props { title: string; description: string; eyebrow: string; heading: string; lead: string; meta?: string; }
+const { title, description, eyebrow, heading, lead, meta } = Astro.props;
 ---
 <Base title={`${title} | ArborSpace`} description={description}>
   <section class="page-hero">
@@ -12,6 +12,7 @@ const { title, description, eyebrow, heading, lead } = Astro.props;
       <p class="eyebrow">{eyebrow}</p>
       <h1>{heading}</h1>
       <p class="page-lead">{lead}</p>
+      {meta && <p class="doc-meta">{meta}</p>}
     </div>
   </section>
   <div class="page-body">

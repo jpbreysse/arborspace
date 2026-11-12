@@ -7,13 +7,22 @@ import Page from '../../layouts/Page.astro';
   eyebrow="Resources · Brief"
   heading="ArborSpace brief"
   lead="ArborSpace on one page: the problem, the product, how it works and the pilot we propose."
+  meta="30 Oct 2026 · @jeanphi"
 >
   <section>
-    <div class="wrap">
+    <div class="wrap doc-layout">
+      <nav class="doc-toc" aria-label="Contents">
+        <p class="eyebrow">Contents</p>
+        <ol>
+          <li><a href="#problem">The problem</a></li>
+          <li><a href="#product">What ArborSpace is</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#apart">What sets it apart</a></li>
+          <li><a href="#next-steps">Next steps</a></li>
+        </ol>
+      </nav>
       <article class="prose">
-        <p class="doc-meta"><time datetime="2026-10-30">30 Oct 2026</time> · @jeanphi</p>
-
-        <h2>The problem</h2>
+        <h2 id="problem">The problem</h2>
         <p>
           The value of a data platform is not in the analysis, it is in the ontology. That is the
           lesson of Palantir: its strength is not computation, it is turning raw tables into
@@ -27,7 +36,7 @@ import Page from '../../layouts/Page.astro';
           model its business from scratch.
         </p>
 
-        <h2>What ArborSpace is</h2>
+        <h2 id="product">What ArborSpace is</h2>
         <p>
           ArborSpace is the memory of the firm: an operational ontology for companies that sell
           expertise (due diligence, technical consulting, commodity trading).
@@ -37,7 +46,7 @@ import Page from '../../layouts/Page.astro';
           what your experts know, in a form the system can apply and your teams can review.
         </p>
 
-        <h2>How it works</h2>
+        <h2 id="how-it-works">How it works</h2>
         <p>
           The unit of value is the rule: a piece of expert knowledge written down explicitly,
           which the system applies and anyone can review.
@@ -53,7 +62,7 @@ import Page from '../../layouts/Page.astro';
           the lender concerned, along with the rule that produced it.
         </p>
 
-        <h2>What sets it apart</h2>
+        <h2 id="apart">What sets it apart</h2>
         <ul>
           <li><strong>A domain model, not a blank page.</strong> ArborSpace ships with a first model of the domain (energy assets, due diligence engagements) that the firm adapts rather than builds.</li>
           <li><strong>Readable rules.</strong> Rules are declarative and inspectable: every conclusion traces back to a named rule and an explicit path of relationships.</li>
@@ -61,7 +70,7 @@ import Page from '../../layouts/Page.astro';
           <li><strong>Sized for a firm.</strong> A pilot is measured in weeks, not in a transformation programme.</li>
         </ul>
 
-        <h2>Next steps</h2>
+        <h2 id="next-steps">Next steps</h2>
         <p>
           We propose a six-week pilot on a narrow scope of the firm. The first two weeks are used
           to write the first fifteen rules, starting from three questions put to your experts.
