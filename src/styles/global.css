@@ -358,7 +358,7 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); background: var(--paper-2); padding: clamp(2.5rem, 6vw, 4rem) 0 2rem; font-size: .95rem; }
-.footer-grid { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 2rem; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr repeat(5, 1fr); gap: 2rem; }
 .footer-brand p { color: var(--ink-soft); margin: 1rem 0; max-width: 22rem; }
 .footer-brand > a:last-child { color: var(--accent); font-weight: 500; }
 .footer-col .eyebrow { color: var(--ink-soft); margin-bottom: .9rem; }

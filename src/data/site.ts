@@ -26,6 +26,12 @@ export const nav: NavGroup[] = [
     ],
   },
   {
+    label: 'Customers',
+    items: [
+      { label: 'Due diligence firms', href: '/customers/due-diligence', description: 'Independent engineers advising lenders' },
+    ],
+  },
+  {
     label: 'Resources',
     items: [
       { label: 'Brief', href: '/resources/brief', description: 'ArborSpace on one page' },
