@@ -339,7 +339,7 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .doc-toc ol { list-style: none; border-left: 1px solid var(--line); }
 .doc-toc a { display: block; padding: .35rem 0 .35rem 1rem; margin-left: -1px; border-left: 2px solid transparent; text-decoration: none; color: var(--ink-soft); font-size: .95rem; }
 .doc-toc a:hover { color: var(--accent); border-left-color: var(--accent); }
-.doc-layout .prose h2 { scroll-margin-top: 5.5rem; }
+.doc-layout .prose h2, #example { scroll-margin-top: 5.5rem; }
 @media (max-width: 60rem) { .doc-layout { grid-template-columns: 1fr; gap: 0; } .doc-toc { display: none; } }
 
 /* Footer */
