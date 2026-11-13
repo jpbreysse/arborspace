@@ -323,6 +323,8 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .prose { max-width: 44rem; }
 .prose h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 2.5rem 0 1rem; }
 .prose h2:first-child { margin-top: 0; }
+.prose h3 { font-size: 1.2rem; margin: 1.75rem 0 .6rem; display: flex; align-items: center; gap: .6rem; }
+.layer-num { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-family: var(--mono); font-size: .8rem; font-weight: 500; flex: none; }
 .prose p, .prose li { color: var(--ink-soft); }
 .prose strong { color: var(--ink); }
 .prose ul, .prose ol { padding-left: 1.2rem; margin: 0 0 1em; }

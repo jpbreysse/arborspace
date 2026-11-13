@@ -1,7 +1,6 @@
 ---
 import Page from '../../layouts/Page.astro';
 import PlantExample from '../../components/PlantExample.astro';
-import { examplePath } from '../../data/site';
 
 // Four actors look at the same Alder Creek unit, each with their own question
 const actors = [
@@ -58,19 +57,48 @@ const actors = [
         </p>
 
         <h2 id="ontology">The ontology</h2>
+        <p>The ontology has three layers.</p>
+
+        <h3><span class="layer-num">1</span> The vocabulary: what exists</h3>
+        <p>The classes of objects in the firm’s business:</p>
         <ul>
-          <li><strong>Thresholds and red flags</strong> your engineers apply, written as rules.</li>
-          <li><strong>The links</strong> between each finding, the asset, the site, the engagement and the lender.</li>
-          <li><strong>Every review decision</strong>, kept as part of the firm’s memory.</li>
+          <li><strong>Assets:</strong> site, gas turbine, steam turbine, heat recovery steam generator, generator, equipment model, manufacturer.</li>
+          <li><strong>Engagements:</strong> due diligence engagement, independent engineer’s report (IER), portfolio.</li>
+          <li><strong>Parties:</strong> lender, sponsor, operator.</li>
         </ul>
-        <ol class="path doc-path" aria-label="Relationship path of a finding">
-          {examplePath.map((step) => (
-            <li>
-              <span class="node"><small>{step.kind}</small>{step.label}</span>
-              {step.edge && <span class="edge">{step.edge}</span>}
-            </li>
-          ))}
-        </ol>
+
+        <h3><span class="layer-num">2</span> The links: how it holds together</h3>
+        <p>Typed relations, which are never confused with one another:</p>
+        <ul>
+          <li>“GT1 feeds HRSG1” is a <strong>physical</strong> link.</li>
+          <li>“GT1 is a 7F model” is a <strong>manufacturer</strong> link.</li>
+          <li>“The engagement covers the site” and “the lender finances the project” are <strong>contractual and financial</strong> links.</li>
+        </ul>
+        <p>These links are what lead from an inspection to its effect on the debt.</p>
+
+        <h3><span class="layer-num">3</span> The rules: what a senior engineer checks</h3>
+        <p>
+          For example, “every planned outage duration is compared with similar outages already
+          completed”, or “every maintenance deferral requires a signed approval”. Each rule
+          produces findings that an engineer validates.
+        </p>
+
+        <div class="callout">
+          <p class="eyebrow">The example that makes it concrete</p>
+          <p>
+            A line in the maintenance plan (“GT1 inspection, 12 days”) says nothing on its own. The
+            ontology knows that GT1 feeds a boiler that feeds the shared steam turbine. It deduces
+            that the unit loses 306 MW, not a third of its output, and knows which lender carries
+            that risk. No document in the data room contains this path; the ontology does.
+          </p>
+        </div>
+
+        <h3>What it is not</h3>
+        <ul>
+          <li><strong>Not a document store:</strong> the reports stay where they are.</li>
+          <li><strong>Not a fixed IT data model:</strong> the classes are data, which the firm evolves itself.</li>
+          <li><strong>Not an AI that guesses:</strong> everything is declared, versioned and verifiable.</li>
+        </ul>
 
         <h2 id="actors">The actors</h2>
         <p>
