@@ -214,11 +214,14 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 }
 
 /* Problem statement */
-.statement { max-width: 50rem; margin: 0 auto; text-align: center; }
-.statement h2 { font-size: clamp(1.9rem, 4vw, 2.75rem); margin-bottom: 1.5rem; }
+.statement { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem; align-items: start; }
+.statement h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); }
 .statement h2 em { font-style: normal; color: var(--accent); }
-.statement p { color: var(--ink-soft); font-size: 1.15rem; max-width: 44rem; margin-left: auto; margin-right: auto; }
+.statement p { color: var(--ink-soft); font-size: 1.1rem; }
+.statement p:last-child { margin-bottom: 0; }
 .statement p strong { color: var(--ink); }
+@media (min-width: 52.01rem) { .statement > div:last-child { padding-top: 2rem; } }
+@media (max-width: 52rem) { .statement { grid-template-columns: 1fr; } }
 
 /* Comparison */
 .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
