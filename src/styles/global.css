@@ -344,7 +344,9 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 
 /* Data tables */
 .table-scroll { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
-.data-table { width: 100%; min-width: 40rem; border-collapse: collapse; font-size: .9rem; line-height: 1.5; }
+.prose .doc-path { padding-left: 0; margin: 1.5rem 0; }
+.doc-path li { margin-bottom: 0; }
+.data-table { width: 100%; min-width: 32rem; border-collapse: collapse; font-size: .9rem; line-height: 1.5; }
 .data-table th, .data-table td { text-align: left; vertical-align: top; padding: .8rem .9rem; border-bottom: 1px solid var(--line); }
 .data-table tbody tr:last-child > * { border-bottom: 0; }
 .data-table thead th { font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); background: var(--paper-2); }

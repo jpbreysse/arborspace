@@ -1,6 +1,7 @@
 ---
 import Page from '../../layouts/Page.astro';
 import PlantExample from '../../components/PlantExample.astro';
+import { examplePath } from '../../data/site';
 
 // Four actors look at the same Alder Creek unit, each with their own question
 const actors = [
@@ -42,39 +43,66 @@ const actors = [
       <nav class="doc-toc" aria-label="Contents">
         <p class="eyebrow">Contents</p>
         <ol>
-          <li><a href="#captures">What the firm captures</a></li>
-          <li><a href="#next-engagement">What changes on the next engagement</a></li>
-          <li><a href="#actors">Actors</a></li>
-          <li><a href="#example">An example: Alder Creek</a></li>
+          <li><a href="#use-case">Use case</a></li>
+          <li><a href="#ontology">The ontology</a></li>
+          <li><a href="#actors">The actors</a></li>
+          <li><a href="#questions">The questions</a></li>
+          <li><a href="#example">Example</a></li>
         </ol>
       </nav>
       <article class="prose">
-        <h2 id="captures">What the firm captures</h2>
-        <ul>
-          <li><strong>Thresholds and red flags</strong> your engineers apply, written as rules.</li>
-          <li><strong>The links</strong> between each finding, the asset, the site, the engagement and the lender.</li>
-          <li><strong>Every review decision</strong>, kept as part of the firm’s memory.</li>
-        </ul>
-        <h2 id="next-engagement">What changes on the next engagement</h2>
+        <h2 id="use-case">Use case</h2>
         <p>
           A similarity engine matches each new case with the firm’s previous ones, and every
           conclusion traces back to a named rule that a lender’s reviewer can read.
         </p>
 
-        <h2 id="actors">Actors: four views of the same project</h2>
+        <h2 id="ontology">The ontology</h2>
+        <ul>
+          <li><strong>Thresholds and red flags</strong> your engineers apply, written as rules.</li>
+          <li><strong>The links</strong> between each finding, the asset, the site, the engagement and the lender.</li>
+          <li><strong>Every review decision</strong>, kept as part of the firm’s memory.</li>
+        </ul>
+        <ol class="path doc-path" aria-label="Relationship path of a finding">
+          {examplePath.map((step) => (
+            <li>
+              <span class="node"><small>{step.kind}</small>{step.label}</span>
+              {step.edge && <span class="edge">{step.edge}</span>}
+            </li>
+          ))}
+        </ol>
+
+        <h2 id="actors">The actors</h2>
         <p>
           The operator, the due diligence firm, the bank and the trader look at the same unit, but
-          each asks their own question and needs different data to answer it. Brought together in
-          one model, that data gives four answers in a few clicks.
+          each needs different data.
         </p>
         <div class="table-scroll">
           <table class="data-table">
             <thead>
-              <tr><th scope="col">Actor</th><th scope="col">Their question</th><th scope="col">The data they need</th><th scope="col">What they find at Alder Creek</th></tr>
+              <tr><th scope="col">Actor</th><th scope="col">The data they need</th></tr>
             </thead>
             <tbody>
               {actors.map((a) => (
-                <tr><th scope="row">{a.actor}</th><td>{a.question}</td><td>{a.data}</td><td>{a.finding}</td></tr>
+                <tr><th scope="row">{a.actor}</th><td>{a.data}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="questions">The questions</h2>
+        <p>
+          Each actor asks their own question. Brought together in one model, the data gives four
+          answers in a few clicks.
+        </p>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th scope="col">Actor</th><th scope="col">Their question</th><th scope="col">What they find at Alder Creek</th></tr>
+            </thead>
+            <tbody>
+              {actors.map((a) => (
+                <tr><th scope="row">{a.actor}</th><td>{a.question}</td><td>{a.finding}</td></tr>
               ))}
             </tbody>
           </table>
