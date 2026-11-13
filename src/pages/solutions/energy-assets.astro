@@ -1,6 +1,34 @@
 ---
 import Page from '../../layouts/Page.astro';
 import PlantExample from '../../components/PlantExample.astro';
+
+// Four actors look at the same Alder Creek unit, each with their own question
+const actors = [
+  {
+    actor: 'Operator',
+    question: 'Are my turbines on schedule?',
+    data: 'Hour counters, last inspection, manufacturer interval',
+    finding: 'Gas turbine 2 has run 8% past its inspection interval, while the plan schedules it for 2027.',
+  },
+  {
+    actor: 'Due diligence firm',
+    question: 'Is the seller’s maintenance plan credible?',
+    data: 'Planned schedule, completed inspections, actual durations and costs',
+    finding: 'The 2027 inspection is planned at 12 days and 420 kUSD; the same one in 2025 took 15 days and cost 465 kUSD.',
+  },
+  {
+    actor: 'Bank',
+    question: 'What does maintenance cost the output that repays the debt?',
+    data: 'Unit capacity, 2×1 configuration, production plan',
+    finding: '306 MW lost during the outage: 2.4% of annual output according to the plan, 3% according to history.',
+  },
+  {
+    actor: 'Trader',
+    question: 'Which output have I sold that I will not be able to deliver, and when?',
+    data: 'Outage calendar, lost capacity, forward sales, price curve over the period',
+    finding: 'About 22,000 MWh to buy back if the inspection takes 15 days instead of 12.',
+  },
+];
 ---
 <Page
   title="Ontology for Energy Assets"
@@ -16,6 +44,7 @@ import PlantExample from '../../components/PlantExample.astro';
         <ol>
           <li><a href="#captures">What the firm captures</a></li>
           <li><a href="#next-engagement">What changes on the next engagement</a></li>
+          <li><a href="#actors">Actors</a></li>
           <li><a href="#example">An example: Alder Creek</a></li>
         </ol>
       </nav>
@@ -31,6 +60,25 @@ import PlantExample from '../../components/PlantExample.astro';
           A similarity engine matches each new case with the firm’s previous ones, and every
           conclusion traces back to a named rule that a lender’s reviewer can read.
         </p>
+
+        <h2 id="actors">Actors: four views of the same project</h2>
+        <p>
+          The operator, the due diligence firm, the bank and the trader look at the same unit, but
+          each asks their own question and needs different data to answer it. Brought together in
+          one model, that data gives four answers in a few clicks.
+        </p>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th scope="col">Actor</th><th scope="col">Their question</th><th scope="col">The data they need</th><th scope="col">What they find at Alder Creek</th></tr>
+            </thead>
+            <tbody>
+              {actors.map((a) => (
+                <tr><th scope="row">{a.actor}</th><td>{a.question}</td><td>{a.data}</td><td>{a.finding}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </article>
     </div>
   </section>

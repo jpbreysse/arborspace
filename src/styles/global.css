@@ -342,6 +342,16 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .doc-layout .prose h2, #example { scroll-margin-top: 5.5rem; }
 @media (max-width: 60rem) { .doc-layout { grid-template-columns: 1fr; gap: 0; } .doc-toc { display: none; } }
 
+/* Data tables */
+.table-scroll { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+.data-table { width: 100%; min-width: 40rem; border-collapse: collapse; font-size: .9rem; line-height: 1.5; }
+.data-table th, .data-table td { text-align: left; vertical-align: top; padding: .8rem .9rem; border-bottom: 1px solid var(--line); }
+.data-table tbody tr:last-child > * { border-bottom: 0; }
+.data-table thead th { font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); background: var(--paper-2); }
+.data-table tbody th { font-weight: 600; color: var(--accent-strong); white-space: nowrap; }
+.data-table td:last-child { color: var(--ink); font-weight: 500; }
+.data-table td { color: var(--ink-soft); }
+
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); background: var(--paper-2); padding: clamp(2.5rem, 6vw, 4rem) 0 2rem; font-size: .95rem; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 2rem; }
