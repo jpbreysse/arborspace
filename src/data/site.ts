@@ -20,7 +20,7 @@ export const nav: NavGroup[] = [
   {
     label: 'Solutions',
     items: [
-      { label: 'Technical due diligence', href: '/solutions/technical-due-diligence', description: 'Assets, findings and lenders, connected' },
+      { label: 'Ontology for Energy Assets', href: '/solutions/energy-assets', description: 'Assets, findings and lenders, connected' },
       { label: 'Technical consulting', href: '/solutions/technical-consulting', description: 'Reuse what your experts already know' },
       { label: 'Commodity trading', href: '/solutions/commodity-trading', description: 'Capture the judgement behind each deal' },
     ],
