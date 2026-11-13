@@ -2,8 +2,20 @@
 import Page from '../../layouts/Page.astro';
 
 const team = [
-  { name: 'Jeanphi', role: 'Designed the solution' },
-  { name: 'Philippe', role: 'CEO' },
+  {
+    name: 'Jean-Philippe Breysse',
+    initials: 'JP',
+    role: 'Founder · Designed the solution',
+    bio: 'Twenty-two years at Oracle, from sales consulting to cloud architecture for the EMEA ISV team. Then cloud and database engineering at Avaloq, on the migration of 30 banks to the cloud, and DevSecOps for the Swiss Federal Office of Information Technology.',
+    facts: ['30 years in enterprise IT', 'Oracle Cloud certified architect', 'MSc Computer Science, Paris Dauphine'],
+  },
+  {
+    name: 'Philippe Mahieu',
+    initials: 'PM',
+    role: 'CEO',
+    bio: 'Senior IT project and program manager focused on business transformation. Executive technology advisor on enterprise IT and data governance, with a 30-year career across Europe, the USA, Asia and India.',
+    facts: ['30 years in enterprise IT', 'Oracle, 2001 to 2008', 'ESME engineering school'],
+  },
 ];
 ---
 <Page
@@ -31,14 +43,16 @@ const team = [
       <div class="section-head">
         <p class="eyebrow">The team</p>
         <h2>Two IT veterans.</h2>
-        <p class="lead">ArborSpace is built by a team of two.</p>
+        <p class="lead">ArborSpace is built by a team of two, both former Oracle, based in Geneva.</p>
       </div>
       <div class="cards team">
         {team.map((m) => (
           <div class="card">
-            <span class="avatar" aria-hidden="true">{m.name[0]}</span>
+            <span class="avatar" aria-hidden="true">{m.initials}</span>
             <h3>{m.name}</h3>
             <p class="role">{m.role}</p>
+            <p>{m.bio}</p>
+            <ul class="facts">{m.facts.map((f) => <li>{f}</li>)}</ul>
           </div>
         ))}
       </div>

@@ -388,9 +388,12 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .plant-note { font-size: .8rem; color: var(--ink-soft); margin: 1rem 0 0; }
 
 /* Team cards (About) */
-.cards.team { max-width: 44rem; }
+.cards.team { max-width: 60rem; }
 .team .avatar {
   display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; margin-bottom: 1rem;
   background: var(--accent-soft); color: var(--accent); font-family: var(--display); font-weight: 700; font-size: 1.3rem;
 }
-.team .role { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
+.team .avatar { font-size: 1.05rem; }
+.team .role { font-family: var(--mono); font-size: .85rem; color: var(--accent); margin-bottom: .75rem; }
+.team .facts { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.team .facts li { font-family: var(--mono); font-size: .75rem; padding: .2rem .55rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); }
