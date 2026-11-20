@@ -2,7 +2,7 @@
 title: Reference deployment on Azure
 description: How ArborSpace is deployed in your own Azure subscription, step by step, from access to network.
 audience: IT teams
-order: 3
+order: 4
 ---
 
 ArborSpace is deployed in your Azure subscription, on a **vendor-operated, customer-hosted** model: the source code stays with ArborSpace, and only the container image is delivered. This page walks through the reference deployment. For an overview, see [Deployment](/product/deployment).

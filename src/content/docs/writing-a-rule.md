@@ -2,7 +2,7 @@
 title: Writing a rule
 description: How a check your senior analysts make by reflex becomes a rule the system applies to every asset.
 audience: Analysts
-order: 2
+order: 3
 ---
 
 The rule is the unit of value in ArborSpace. This page explains where rules come from, what a rule is made of, and what happens once it fires.

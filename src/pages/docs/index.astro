@@ -14,7 +14,7 @@ const docs = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.
 >
   <section>
     <div class="wrap">
-      <div class="cards three">
+      <div class="cards">
         {docs.map((d) => (
           <a class="card" href={`/docs/${d.id}`}>
             <p class="eyebrow">{d.data.audience}</p>
