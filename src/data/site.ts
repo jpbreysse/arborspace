@@ -33,7 +33,6 @@ export const nav: NavGroup[] = [
     label: 'Company',
     items: [
       { label: 'About', href: '/company/about', description: 'Why we are building ArborSpace' },
-      { label: 'Contact', href: '/company/contact', description: 'Talk to us about a pilot' },
     ],
   },
 ];
