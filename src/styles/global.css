@@ -428,9 +428,6 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .prose .doc-figure li { margin-bottom: 0; color: inherit; }
 
 /* Documentation pages */
-.docs-nav .eyebrow a { color: inherit; text-decoration: none; }
-.docs-nav a[aria-current="page"] { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
-@media (max-width: 60rem) { .doc-toc.docs-nav { display: block; position: static; margin-bottom: 2rem; } }
 .prose h2[id], .prose h3[id] { scroll-margin-top: 5.5rem; }
 .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem; line-height: 1.5; }
 @media (max-width: 52rem) { .prose table { display: block; overflow-x: auto; } }
@@ -445,3 +442,29 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .prose :not(pre) > code { overflow-wrap: anywhere; background: var(--paper-2); border: 1px solid var(--line); border-radius: 4px; padding: .05em .35em; color: var(--ink); }
 .prose pre code { font-size: inherit; }
 @media (prefers-color-scheme: dark) { .astro-code, .astro-code span { color: var(--shiki-dark) !important; background-color: var(--shiki-dark-bg) !important; } }
+
+/* Documentation layout: sections on the left, content, "On this page" on the right */
+.docs-layout { display: grid; grid-template-columns: 13rem minmax(0, 44rem) 11rem; gap: 3rem; align-items: start; }
+.docs-nav, .docs-toc { position: sticky; top: 5.5rem; max-height: calc(100vh - 7rem); overflow-y: auto; }
+.docs-nav .eyebrow a { color: inherit; text-decoration: none; }
+.docs-nav-group { margin-top: 1.25rem; }
+.docs-nav-section { font-weight: 600; font-size: .9rem; color: var(--ink); margin-bottom: .35rem; }
+.docs-nav ol, .docs-toc ol { list-style: none; border-left: 1px solid var(--line); }
+.docs-nav a, .docs-toc a { display: block; padding: .3rem 0 .3rem 1rem; margin-left: -1px; border-left: 2px solid transparent; text-decoration: none; color: var(--ink-soft); font-size: .92rem; line-height: 1.35; }
+.docs-nav a:hover, .docs-toc a:hover { color: var(--accent); border-left-color: var(--accent); }
+.docs-nav a[aria-current="page"] { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+.docs-toc a { font-size: .85rem; }
+.docs-pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.docs-pager a { display: block; padding: .9rem 1.1rem; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--card); text-decoration: none; color: var(--ink); font-weight: 600; }
+.docs-pager a:hover { border-color: var(--accent); }
+.docs-pager a span { display: block; font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: .25rem; }
+.docs-pager .next { grid-column: 2; text-align: right; }
+@media (max-width: 75rem) { .docs-layout { grid-template-columns: 13rem minmax(0, 44rem); } .docs-toc { display: none; } }
+@media (max-width: 60rem) {
+  .docs-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .docs-nav { position: static; max-height: none; }
+}
+@media (max-width: 30rem) { .docs-pager { grid-template-columns: 1fr; } .docs-pager .next { grid-column: 1; } }
+.docs-index-section + .docs-index-section { margin-top: 3rem; }
+.docs-index-section h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin-bottom: .35rem; scroll-margin-top: 5.5rem; }
+.docs-index-desc { color: var(--ink-soft); margin-bottom: 1.25rem; }

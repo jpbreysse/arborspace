@@ -1,29 +1,35 @@
 ---
 import Page from '../../layouts/Page.astro';
-import { getCollection } from 'astro:content';
+import { getDocGroups } from '../../lib/docs';
 
-const docs = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.order);
+const groups = await getDocGroups();
 ---
 <Page
   title="Documentation"
-  description="ArborSpace documentation: the concepts, how to write a rule, and the reference deployment on Azure."
+  description="ArborSpace documentation: concepts, the ontology, rules and deployment."
   eyebrow="Docs"
   heading="Documentation"
   lead="For the analysts who will write and review rules, and for the IT team that will run ArborSpace."
   cta={false}
 >
   <section>
-    <div class="wrap">
-      <div class="cards">
-        {docs.map((d) => (
-          <a class="card" href={`/docs/${d.id}`}>
-            <p class="eyebrow">{d.data.audience}</p>
-            <h3>{d.data.title}</h3>
-            <p>{d.data.description}</p>
-            <span class="more">Read →</span>
-          </a>
-        ))}
-      </div>
+    <div class="wrap docs-index">
+      {groups.map((g) => (
+        <div class="docs-index-section" id={g.section.slug}>
+          <h2>{g.section.label}</h2>
+          <p class="docs-index-desc">{g.section.description}</p>
+          <div class="cards">
+            {g.pages.map((d) => (
+              <a class="card" href={`/docs/${d.id}`}>
+                <p class="eyebrow">{d.data.audience}</p>
+                <h3>{d.data.title}</h3>
+                <p>{d.data.description}</p>
+                <span class="more">Read →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 </Page>

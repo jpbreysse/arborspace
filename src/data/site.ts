@@ -1,3 +1,5 @@
+import { activeDocSections } from './docSections';
+
 // Contact address, used by every "Discuss a pilot" button
 export const contactEmail = 'contact@arborspace.dev';
 export const pilotMailto = `mailto:${contactEmail}?subject=${encodeURIComponent('ArborSpace pilot')}`;
@@ -33,10 +35,7 @@ export const nav: NavGroup[] = [
     label: 'Docs',
     items: [
       { label: 'Overview', href: '/docs', description: 'For analysts and IT teams' },
-      { label: 'Concepts', href: '/docs/concepts', description: 'From the ontology to the review queue' },
-      { label: 'Links', href: '/docs/links', description: 'Typed relationships between assets' },
-      { label: 'Writing a rule', href: '/docs/writing-a-rule', description: 'From an expert check to a rule' },
-      { label: 'Deployment on Azure', href: '/docs/azure-deployment', description: 'The reference deployment' },
+      ...activeDocSections.map((sec) => ({ label: sec.label, href: `/docs#${sec.slug}`, description: sec.description })),
     ],
   },
   {

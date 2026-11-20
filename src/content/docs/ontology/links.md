@@ -2,10 +2,10 @@
 title: Links
 description: How to create a typed relationship between two assets, and how to choose between participates_in and contributed_to.
 audience: Analysts
-order: 2
+order: 1
 ---
 
-A link is a typed relationship from one asset to another. Links are what let ArborSpace follow a path, from an inspection to its effect on the debt, or from a piece of software to the people who built it. See [Concepts](/docs/concepts#link).
+A link is a typed relationship from one asset to another. Links are what let ArborSpace follow a path, from an inspection to its effect on the debt, or from a piece of software to the people who built it. See [Concepts](/docs/getting-started/concepts#link).
 
 ## Creating a link
 

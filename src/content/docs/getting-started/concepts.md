@@ -37,7 +37,7 @@ Links are what lead from an inspection to its effect on the debt.
 
 A rule is a piece of expert knowledge written down explicitly, which the system applies and anyone can review. For example: “every planned outage duration is compared with similar outages already completed on the same model; any gap above 10% is flagged.”
 
-Rules are declarative and inspectable. Reasoning rules run after a change is saved and propose findings: they never block a write. See [Writing a rule](/docs/writing-a-rule).
+Rules are declarative and inspectable. Reasoning rules run after a change is saved and propose findings: they never block a write. See [Writing a rule](/docs/rules/writing-a-rule).
 
 ## Finding
 

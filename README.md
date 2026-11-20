@@ -20,6 +20,14 @@ npm run build    # génère dist/
 - `src/styles/global.css` : couleurs, typographie, mise en page (thème sombre inclus)
 - `public/nav.js` : ouverture des menus déroulants (fichier séparé pour respecter la CSP de nginx)
 
+## Documentation
+
+- Une page = un fichier Markdown dans `src/content/docs/<section>/<page>.md`, publié à l'adresse `/docs/<section>/<page>`.
+- En-tête du fichier : `title`, `description`, `audience` (`Analysts`, `IT teams` ou `Everyone`) et `order` (position dans la section, facultatif).
+- Les sections, leur ordre et leur libellé sont dans `src/data/docSections.ts`. Une section n'apparaît qu'une fois son dossier non vide.
+- Le menu latéral, « On this page », les liens Previous / Next, l'accueil `/docs` et le menu Docs se mettent à jour tout seuls.
+- Si une page change d'adresse, ajouter une redirection 301 dans `nginx.conf`.
+
 Pour ajouter une page au menu : créer le fichier dans `src/pages/`, puis ajouter une ligne dans `nav` de `src/data/site.ts`.
 
 ## Déploiement Scalingo

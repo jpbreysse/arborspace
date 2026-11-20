@@ -1,26 +1,54 @@
 ---
-// A documentation page: the list of docs on the left, the Markdown content on the right
+// A documentation page: sections and pages on the left, the content in the middle,
+// "On this page" on the right, previous / next at the bottom
 import Page from './Page.astro';
-import { getCollection } from 'astro:content';
+import { getDocGroups, type DocEntry } from '../lib/docs';
+import { docSections } from '../data/docSections';
 
-interface Props { title: string; description: string; audience: string; current: string; }
-const { title, description, audience, current } = Astro.props;
-const docs = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.order);
+interface Props { doc: DocEntry; headings: { depth: number; slug: string; text: string }[]; prev?: DocEntry; next?: DocEntry; }
+const { doc, headings, prev, next } = Astro.props;
+const groups = await getDocGroups();
+const section = docSections.find((s) => s.slug === doc.id.split('/')[0]);
+const toc = headings.filter((h) => h.depth === 2);
 ---
-<Page title={title} description={description} eyebrow={`Docs · ${audience}`} heading={title} lead={description} cta={false}>
+<Page
+  title={doc.data.title}
+  description={doc.data.description}
+  eyebrow={`Docs · ${section?.label ?? ''}`}
+  heading={doc.data.title}
+  lead={doc.data.description}
+  cta={false}
+>
   <section>
-    <div class="wrap doc-layout">
-      <nav class="doc-toc docs-nav" aria-label="Documentation">
+    <div class="wrap docs-layout">
+      <nav class="docs-nav" aria-label="Documentation">
         <p class="eyebrow"><a href="/docs">Documentation</a></p>
-        <ol>
-          {docs.map((d) => (
-            <li><a href={`/docs/${d.id}`} aria-current={d.id === current ? 'page' : undefined}>{d.data.title}</a></li>
-          ))}
-        </ol>
+        {groups.map((g) => (
+          <div class="docs-nav-group">
+            <p class="docs-nav-section">{g.section.label}</p>
+            <ol>
+              {g.pages.map((p) => (
+                <li><a href={`/docs/${p.id}`} aria-current={p.id === doc.id ? 'page' : undefined}>{p.data.title}</a></li>
+              ))}
+            </ol>
+          </div>
+        ))}
       </nav>
       <article class="prose">
         <slot />
+        <nav class="docs-pager" aria-label="Previous and next pages">
+          {prev ? <a class="prev" href={`/docs/${prev.id}`}><span>Previous</span>{prev.data.title}</a> : <span />}
+          {next && <a class="next" href={`/docs/${next.id}`}><span>Next</span>{next.data.title}</a>}
+        </nav>
       </article>
+      {toc.length > 1 && (
+        <nav class="docs-toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol>
+            {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+          </ol>
+        </nav>
+      )}
     </div>
   </section>
 </Page>
