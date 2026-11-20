@@ -432,7 +432,8 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .docs-nav a[aria-current="page"] { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
 @media (max-width: 60rem) { .doc-toc.docs-nav { display: block; position: static; margin-bottom: 2rem; } }
 .prose h2[id], .prose h3[id] { scroll-margin-top: 5.5rem; }
-.prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem; line-height: 1.5; display: block; overflow-x: auto; }
+.prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem; line-height: 1.5; }
+@media (max-width: 52rem) { .prose table { display: block; overflow-x: auto; } }
 .prose th, .prose td { text-align: left; vertical-align: top; padding: .7rem .85rem; border-bottom: 1px solid var(--line); }
 .prose thead th { font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); background: var(--paper-2); }
 .prose td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
