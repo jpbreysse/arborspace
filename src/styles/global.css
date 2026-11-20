@@ -439,3 +439,8 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .prose blockquote { margin: 1rem 0; padding: .9rem 1.2rem; background: var(--amber-soft); border-left: 3px solid var(--amber); border-radius: var(--radius-sm); }
 .prose blockquote p { color: var(--ink); margin: 0; }
 .card .eyebrow { margin-bottom: .5rem; }
+.prose pre { margin: 1.25rem 0 1.5rem; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: var(--radius-sm); font-size: .82rem; line-height: 1.55; overflow-x: auto; }
+.prose code { font-family: var(--mono); font-size: .88em; }
+.prose :not(pre) > code { overflow-wrap: anywhere; background: var(--paper-2); border: 1px solid var(--line); border-radius: 4px; padding: .05em .35em; color: var(--ink); }
+.prose pre code { font-size: inherit; }
+@media (prefers-color-scheme: dark) { .astro-code, .astro-code span { color: var(--shiki-dark) !important; background-color: var(--shiki-dark-bg) !important; } }
