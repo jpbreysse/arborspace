@@ -411,3 +411,14 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .team .role { font-family: var(--mono); font-size: .85rem; color: var(--accent); margin-bottom: .75rem; }
 .team .facts { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem; }
 .team .facts li { font-family: var(--mono); font-size: .75rem; padding: .2rem .55rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); }
+
+/* Home: four consequences of one gap */
+.impact .figure { font-size: clamp(1.8rem, 3.4vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--accent); margin-bottom: .75rem; }
+.impact .who { color: var(--ink); font-style: italic; margin-bottom: .5rem; }
+.impact .who strong { font-style: normal; }
+.fine { margin-top: 1.25rem; font-size: .9rem; color: var(--ink-soft); font-style: italic; }
+.alt .cards + .actions { margin-top: 2rem; }
+#contact h2 { font-size: clamp(1.3rem, 5vw, 3rem); overflow-wrap: anywhere; }
+#contact h2 a { color: var(--accent); text-decoration: none; }
+#contact h2 a:hover { text-decoration: underline; }
+#contact .section-head { margin-bottom: 0; }
