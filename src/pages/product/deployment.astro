@@ -1,20 +1,86 @@
 ---
 import Page from '../../layouts/Page.astro';
+import { pilotMailto } from '../../data/site';
+
+// What a client's IT team asks before a pilot
+const faq = [
+  { q: 'Who operates it?', a: 'You, or ArborSpace on your infrastructure, with access you grant and can revoke.' },
+  { q: 'How do updates arrive?', a: 'As a new image pushed to your registry. You decide when to deploy it.' },
+  { q: 'How do users sign in?', a: 'Local accounts today. Single sign-on with Entra ID is planned.' },
+  { q: 'Can we read the code?', a: 'Yes: repository access for review, under licence.' },
+  { q: 'How do we back up?', a: 'It is your PostgreSQL: your existing backup tools and policies apply.' },
+  { q: 'How do we leave?', a: 'A standard PostgreSQL dump. Your rules and data stay readable without ArborSpace.' },
+];
 ---
 <Page
   title="Deployment"
-  description="ArborSpace is deployed in the client's environment, on site or in its own cloud, with code the client can audit."
+  description="ArborSpace runs in your environment: three container components, on your premises or in your own cloud. No data leaves your network."
   eyebrow="Product · Deployment"
   heading="On your premises, or in your own cloud."
-  lead="ArborSpace is deployed in the client’s environment, with code the client can audit."
+  lead="ArborSpace runs in your environment, with code your team can audit. Nothing leaves your network."
+  cta={false}
 >
   <section>
-    <div class="wrap">
-      <div class="cards three">
-        <div class="card"><h3>On site</h3><p>Installed in your own infrastructure, next to the data it works on.</p></div>
-        <div class="card"><h3>In your cloud</h3><p>Deployed in your own cloud account, under your own controls.</p></div>
-        <div class="card"><h3>Auditable</h3><p>The code can be audited by the client: nothing runs that you cannot inspect.</p></div>
-      </div>
+    <div class="wrap doc-layout">
+      <nav class="doc-toc" aria-label="Contents">
+        <p class="eyebrow">Contents</p>
+        <ol>
+          <li><a href="#installed">What gets installed</a></li>
+          <li><a href="#where">Where it runs</a></li>
+          <li><a href="#network">What leaves your network</a></li>
+          <li><a href="#questions">Questions your IT team will ask</a></li>
+          <li><a href="#security">Security</a></li>
+        </ol>
+      </nav>
+      <article class="prose">
+        <h2 id="installed">What gets installed</h2>
+        <p>Three components, delivered as container images:</p>
+        <ul>
+          <li><strong>The applications:</strong> web apps for the ontology, the asset registry and the review queue.</li>
+          <li><strong>A PostgreSQL database:</strong> all rules, objects and findings live here.</li>
+          <li><strong>File storage:</strong> for the documents attached to assets and findings.</li>
+        </ul>
+        <p>Nothing else. No agent on user machines, no proprietary database.</p>
+
+        <h2 id="where">Where it runs</h2>
+        <p>
+          <strong>On your premises.</strong> Any container host, and a PostgreSQL instance you
+          already operate.
+        </p>
+        <p>
+          <strong>In your own cloud.</strong> The reference deployment is on Azure: App Service or
+          Container Apps, PostgreSQL Flexible Server, Blob Storage, Key Vault, and your own
+          container registry. It is deployed in your subscription, in the region you choose.
+        </p>
+
+        <h2 id="network">What leaves your network</h2>
+        <p>
+          <strong>Nothing.</strong> Rules run inside the application. No data is sent to
+          ArborSpace or to a third party.
+        </p>
+        <p>
+          <strong>AI models.</strong> Inference runs on a model endpoint in your own cloud, for
+          example Azure OpenAI in your subscription.
+        </p>
+
+        <h2 id="questions">Questions your IT team will ask</h2>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead><tr><th scope="col">Question</th><th scope="col">Answer</th></tr></thead>
+            <tbody>
+              {faq.map((f) => <tr><th scope="row">{f.q}</th><td>{f.a}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="security">Security</h2>
+        <ul>
+          <li><strong>Available today:</strong> a security file for your IT director, and a review of the code on request.</li>
+          <li><strong>Planned:</strong> single sign-on with Entra ID.</li>
+        </ul>
+
+        <p><a class="btn btn-primary btn-lg" href={pilotMailto}>Discuss a pilot</a></p>
+      </article>
     </div>
   </section>
 </Page>
