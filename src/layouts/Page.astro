@@ -3,8 +3,8 @@
 import Base from './Base.astro';
 import PilotCta from '../components/PilotCta.astro';
 
-interface Props { title: string; description: string; eyebrow: string; heading: string; lead: string; meta?: string; }
-const { title, description, eyebrow, heading, lead, meta } = Astro.props;
+interface Props { title: string; description: string; eyebrow: string; heading: string; lead: string; meta?: string; cta?: boolean; }
+const { title, description, eyebrow, heading, lead, meta, cta = true } = Astro.props;
 ---
 <Base title={`${title} | ArborSpace`} description={description}>
   <section class="page-hero">
@@ -18,5 +18,5 @@ const { title, description, eyebrow, heading, lead, meta } = Astro.props;
   <div class="page-body">
     <slot />
   </div>
-  <PilotCta />
+  {cta && <PilotCta />}
 </Base>

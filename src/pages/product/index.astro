@@ -1,37 +1,19 @@
 ---
 import Page from '../../layouts/Page.astro';
+import ReviewWindow from '../../components/ReviewWindow.astro';
 import { nav } from '../../data/site';
 
-const parts = nav[0].items.slice(1);
+// The four building blocks, each pointing to its section on this page
+const parts = nav[0].items.slice(1).map((p) => ({ ...p, anchor: '#' + p.href.split('/').pop() }));
 ---
 <Page
   title="Product"
-  description="How ArborSpace fits together: an ontology, rules, a review queue, deployed on your premises."
+  description="ArborSpace on one page: the problem, the ontology, the rules, the review queue and the deployment."
   eyebrow="Product"
   heading="Expert knowledge the system can apply and people can review."
-  lead="ArborSpace is not a chatbot over your documents, nor a better search, nor a data platform for dashboards. It captures the essence of your business in an ontology."
+  lead="ArborSpace is not a chatbot over your documents, nor a better search, nor a data platform for dashboards. It captures what your experts know in an ontology."
+  cta={false}
 >
-  <section>
-    <div class="wrap split">
-      <div class="prose">
-        <h2>What an ontology is</h2>
-        <p>
-          An ontology is an operational layer for the organisation. It sits on top of the data
-          already integrated (datasets, virtual tables and models) and holds both the semantics,
-          meaning the objects, their properties and the links between them, and the actions and
-          logic that apply to them.
-        </p>
-      </div>
-      <div class="prose">
-        <h2>Specific to each business</h2>
-        <p>
-          An ontology is specific to a business. It is built from the firm’s own vocabulary: the
-          objects its experts talk about, the way those objects are connected, and the checks they
-          make on them.
-        </p>
-      </div>
-    </div>
-  </section>
   <section class="alt">
     <div class="wrap">
       <div class="section-head">
@@ -40,13 +22,107 @@ const parts = nav[0].items.slice(1);
       </div>
       <div class="cards">
         {parts.map((p) => (
-          <a class="card" href={p.href}>
+          <a class="card" href={p.anchor}>
             <h3>{p.label}</h3>
             <p>{p.description}</p>
-            <span class="more">Learn more →</span>
+            <span class="more">Read below ↓</span>
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap doc-layout">
+      <nav class="doc-toc" aria-label="Contents">
+        <p class="eyebrow">Contents</p>
+        <ol>
+          <li><a href="#problem">The problem</a></li>
+          <li><a href="#what-it-is">What ArborSpace is</a></li>
+          <li><a href="#ontology">Ontology</a></li>
+          <li><a href="#rules">Rules</a></li>
+          <li><a href="#review-queue">Review queue</a></li>
+          <li><a href="#deployment">Deployment</a></li>
+          <li><a href="#pilot">The pilot</a></li>
+        </ol>
+      </nav>
+      <article class="prose">
+        <h2 id="problem">The problem</h2>
+        <p>
+          Lenders, investors, traders and their advisers decide on assets they do not operate.
+          The data comes from someone else: a seller’s maintenance plan, an operator’s records, a
+          data room. What makes a judgement sound are the checks your senior analysts make by
+          reflex, such as comparing a planned outage with the last one, or following a turbine
+          through to the debt it supports.
+        </p>
+        <p>
+          Those checks live in their heads and in old reports. Each engagement starts over,
+          depends on who is available, and the conclusions rarely show where they come from. The
+          tools at hand do not close the gap: business applications each hold one slice of the
+          asset, data platforms store everything as tables whose meaning is rebuilt by hand, and
+          dashboards show numbers, not reasons.
+        </p>
+
+        <h2 id="what-it-is">What ArborSpace is</h2>
+        <p>
+          ArborSpace is the memory of the firm. It captures what your experts know in a form the
+          system can apply and your teams can review: the objects of your business, the links
+          between them, and the checks your analysts make on them. Every conclusion traces back
+          to its source before a person signs it off.
+        </p>
+
+        <h2 id="ontology">Ontology</h2>
+        <p>
+          The ontology is an operational layer for the organisation. It sits on top of the data
+          already integrated and holds the objects, their properties and the links between them,
+          along with the logic that applies to them. It is built from the firm’s own vocabulary:
+          asset classes, engagements, stakeholders and how they relate.
+        </p>
+        <p>
+          <strong>A domain model, not a blank page.</strong> ArborSpace ships with a first model
+          of the domain (energy assets, due diligence engagements) that the firm adapts rather
+          than builds.
+        </p>
+        <p><a href="/product/ontology">More on the ontology →</a></p>
+
+        <h2 id="rules">Rules</h2>
+        <p>
+          The unit of value is the rule: a piece of expert knowledge written down explicitly,
+          which the system applies and anyone can review. Rules run against the data, and a
+          similarity engine matches each case with the firm’s previous ones.
+        </p>
+        <p>
+          <strong>Readable rules.</strong> Rules are declarative and inspectable: every
+          conclusion traces back to a named rule and an explicit path of relationships.
+        </p>
+        <p class="callout">
+          <strong>Example:</strong> a vibration above 8.2&nbsp;mm/s on a class 7F gas turbine
+          generates a finding. That finding is linked to the asset, the site, the engagement and
+          the lender concerned, along with the rule that produced it.
+        </p>
+        <p><a href="/product/rules">More on the rules →</a></p>
+
+        <h2 id="review-queue">Review queue</h2>
+        <p>
+          People decide. Every conclusion arrives as a finding in a review queue. The expert
+          approves or rejects it, and that decision feeds the memory.
+        </p>
+        <div class="doc-figure"><ReviewWindow /></div>
+        <p><a href="/product/review-queue">More on the review queue →</a></p>
+
+        <h2 id="deployment">Deployment</h2>
+        <p>
+          <strong>On your premises.</strong> ArborSpace is deployed in the client’s environment,
+          on site or in its own cloud, with code the client can audit.
+        </p>
+        <p><a href="/product/deployment">More on deployment →</a></p>
+
+        <h2 id="pilot">The pilot</h2>
+        <p>
+          Six weeks on a narrow scope of your firm: fifteen rules, applied to your own
+          engagements. <a href="/resources/pilot">How the pilot works →</a>
+        </p>
+      </article>
     </div>
   </section>
 </Page>

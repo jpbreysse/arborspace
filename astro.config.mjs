@@ -5,7 +5,7 @@ export default defineConfig({
   output: 'static',
   build: { format: 'directory' },
   redirects: {
-    '/brief': '/resources/brief',
+    '/brief': '/product',
     '/solutions/technical-due-diligence': '/solutions/energy-assets',
   },
 });

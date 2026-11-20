@@ -26,7 +26,6 @@ export const nav: NavGroup[] = [
   {
     label: 'Resources',
     items: [
-      { label: 'Brief', href: '/resources/brief', description: 'ArborSpace on one page' },
       { label: 'Pilot program', href: '/resources/pilot', description: 'Six weeks, fifteen rules, your own engagements' },
     ],
   },
