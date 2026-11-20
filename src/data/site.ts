@@ -30,6 +30,15 @@ export const nav: NavGroup[] = [
     ],
   },
   {
+    label: 'Docs',
+    items: [
+      { label: 'Overview', href: '/docs', description: 'For analysts and IT teams' },
+      { label: 'Concepts', href: '/docs/concepts', description: 'From the ontology to the review queue' },
+      { label: 'Writing a rule', href: '/docs/writing-a-rule', description: 'From an expert check to a rule' },
+      { label: 'Deployment on Azure', href: '/docs/azure-deployment', description: 'The reference deployment' },
+    ],
+  },
+  {
     label: 'Company',
     items: [
       { label: 'About', href: '/company/about', description: 'Why we are building ArborSpace' },

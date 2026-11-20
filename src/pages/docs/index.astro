@@ -1,0 +1,29 @@
+---
+import Page from '../../layouts/Page.astro';
+import { getCollection } from 'astro:content';
+
+const docs = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.order);
+---
+<Page
+  title="Documentation"
+  description="ArborSpace documentation: the concepts, how to write a rule, and the reference deployment on Azure."
+  eyebrow="Docs"
+  heading="Documentation"
+  lead="For the analysts who will write and review rules, and for the IT team that will run ArborSpace."
+  cta={false}
+>
+  <section>
+    <div class="wrap">
+      <div class="cards three">
+        {docs.map((d) => (
+          <a class="card" href={`/docs/${d.id}`}>
+            <p class="eyebrow">{d.data.audience}</p>
+            <h3>{d.data.title}</h3>
+            <p>{d.data.description}</p>
+            <span class="more">Read →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Page>

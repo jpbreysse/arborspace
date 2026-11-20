@@ -1,0 +1,26 @@
+---
+// A documentation page: the list of docs on the left, the Markdown content on the right
+import Page from './Page.astro';
+import { getCollection } from 'astro:content';
+
+interface Props { title: string; description: string; audience: string; current: string; }
+const { title, description, audience, current } = Astro.props;
+const docs = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.order);
+---
+<Page title={title} description={description} eyebrow={`Docs · ${audience}`} heading={title} lead={description} cta={false}>
+  <section>
+    <div class="wrap doc-layout">
+      <nav class="doc-toc docs-nav" aria-label="Documentation">
+        <p class="eyebrow"><a href="/docs">Documentation</a></p>
+        <ol>
+          {docs.map((d) => (
+            <li><a href={`/docs/${d.id}`} aria-current={d.id === current ? 'page' : undefined}>{d.data.title}</a></li>
+          ))}
+        </ol>
+      </nav>
+      <article class="prose">
+        <slot />
+      </article>
+    </div>
+  </section>
+</Page>
